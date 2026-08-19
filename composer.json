@@ -1,0 +1,23 @@
+{
+  "name": "constup-foss/php-reflection",
+  "autoload": {
+    "psr-4": {
+      "ConstupFoss\\PhpReflection\\": "src"
+    }
+  },
+  "authors": [
+    {
+      "name": "constup",
+      "email": "286199137+constup-foss@users.noreply.github.com"
+    }
+  ],
+  "autoload-dev": {
+    "psr-4": {
+      "ConstupFoss\\PhpReflection\\Tests\\": "tests"
+    }
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^3.95",
+    "phpunit/phpunit": "^13"
+  }
+}
