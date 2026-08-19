@@ -1,0 +1,43 @@
+= constUP PHP Reflection
+:toc:
+:toclevels:
+
+image:https://img.shields.io/badge/PHP-8.5-blue[Static Badge]
+image:https://img.shields.io/badge/License-MIT-green[Static Badge]
+
+== Description
+
+A set of utilities to make working with PHP's Reflection API easier.
+
+== Installation
+
+[source]
+----
+composer require constup-foss/php-reflection
+----
+
+== Use
+
+Features are documented in docblocks of methods in interfaces. Exact behavior of each method can be viewed in data
+providers of test cases.
+
+Available classes:
+
+* link:src/ReflectionService.php[`ReflectionService`]
+** Interface: link:src/ReflectionServiceInterface.php[`ReflectionServiceInterface`];
+** Tests: link:tests/Unit/ReflectionServiceTest.php[`ReflectionServiceTest`];
+
+== License
+
+MIT License
+
+- License file: link:LICENSE.txt[LICENSE.txt]
+- Online version: https://opensource.org/license/mit
+
+== Supporting development
+
+If you like this library or find it useful, consider buying me a nice cup of coffee. Coffee fuels open source.
+
+image:doc/bmac.png[width=197]
+
+link:https://www.buymeacoffee.com/puEW3HvWvP[image:https://cdn.buymeacoffee.com/buttons/v2/default-green.png[width=200]]

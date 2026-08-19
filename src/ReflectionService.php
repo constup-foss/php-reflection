@@ -1,27 +1,29 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace ConstupFoss\PhpReflection;
 
 use Exception;
 use ReflectionClass;
+use ReflectionException;
 use Throwable;
 
 readonly class ReflectionService implements ReflectionServiceInterface
 {
     /**
      * @inheritDoc
+     *
      * @throws Exception
      */
     public function propertyHasDefaultValue(string $fqcn, string $propertyName): bool
     {
         try {
             return $this->promotedPropertyHasDefaultValue($fqcn, $propertyName);
-        } catch (Throwable $e) {
+        } catch (Throwable) {
             try {
                 return $this->classPropertyHasDefaultValue($fqcn, $propertyName);
-            } catch (Throwable $e) {
+            } catch (Throwable) {
                 throw new Exception('Property "' . $propertyName . '" does not exist.');
             }
         }
@@ -29,6 +31,8 @@ readonly class ReflectionService implements ReflectionServiceInterface
 
     /**
      * @inheritDoc
+     *
+     * @throws ReflectionException
      */
     public function classPropertyHasDefaultValue(string $fqcn, string $propertyName): bool
     {
@@ -40,6 +44,7 @@ readonly class ReflectionService implements ReflectionServiceInterface
 
     /**
      * @inheritDoc
+     *
      * @throws Exception
      */
     public function promotedPropertyHasDefaultValue(string $fqcn, string $propertyName): bool
@@ -62,16 +67,17 @@ readonly class ReflectionService implements ReflectionServiceInterface
 
     /**
      * @inheritDoc
+     *
      * @throws Exception
      */
     public function getPropertyDefaultValue(string $fqcn, string $propertyName): mixed
     {
         try {
             return $this->getPromotedPropertyDefaultValue($fqcn, $propertyName);
-        } catch (Throwable $e) {
+        } catch (Throwable) {
             try {
                 return $this->getClassPropertyDefaultValue($fqcn, $propertyName);
-            } catch (Throwable $e) {
+            } catch (Throwable) {
                 throw new Exception('Property "' . $propertyName . '" does not exist or does not have a default value.');
             }
         }
@@ -79,6 +85,7 @@ readonly class ReflectionService implements ReflectionServiceInterface
 
     /**
      * @inheritDoc
+     *
      * @throws Exception
      */
     public function getClassPropertyDefaultValue(string $fqcn, string $propertyName): mixed
@@ -98,6 +105,7 @@ readonly class ReflectionService implements ReflectionServiceInterface
 
     /**
      * @inheritDoc
+     *
      * @throws Exception
      */
     public function getPromotedPropertyDefaultValue(string $fqcn, string $propertyName): mixed
@@ -121,16 +129,17 @@ readonly class ReflectionService implements ReflectionServiceInterface
 
     /**
      * @inheritDoc
+     *
      * @throws Exception
      */
     public function isPropertyNullable(string $fqcn, string $propertyName): bool
     {
         try {
             return $this->isPromotedPropertyNullable($fqcn, $propertyName);
-        } catch (Throwable $e) {
+        } catch (Throwable) {
             try {
                 return $this->isClassPropertyNullable($fqcn, $propertyName);
-            } catch (Throwable $e) {
+            } catch (Throwable) {
                 throw new Exception('Property "' . $propertyName . '" does not exist.');
             }
         }
@@ -138,6 +147,7 @@ readonly class ReflectionService implements ReflectionServiceInterface
 
     /**
      * @inheritDoc
+     *
      * @throws Exception
      */
     public function isClassPropertyNullable(string $fqcn, string $propertyName): bool
@@ -157,6 +167,7 @@ readonly class ReflectionService implements ReflectionServiceInterface
 
     /**
      * @inheritDoc
+     *
      * @throws Exception
      */
     public function isPromotedPropertyNullable(string $fqcn, string $propertyName): bool
